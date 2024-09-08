@@ -1,0 +1,20 @@
+[alias]
+    prb = pull --rebase
+    fastr = reset HEAD^
+    rbi = rebase -i
+    pu = push -u
+    aa = add -A
+    cm = commit -m
+    camd = commit --amend
+    pf = push -f
+    ck = checkout
+    ckb = checkout -b
+    bdel = branch -D
+    rb = rebase
+    bren = branch -m
+    bls = branch
+    pd = push -d
+    restore-all = restore --staged *
+[user]
+    email = xuanbach1307@gmail.com
+    name = bachsofttrick
