@@ -1,0 +1,4 @@
+#!/bin/sh
+MYURL="http://ipv4.download.thinkbroadband.com/100MB.zip"
+MYPATH="/mnt/ssd/"
+aria2c -x6 -d $MYPATH $MYURL

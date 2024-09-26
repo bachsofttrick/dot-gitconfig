@@ -1,0 +1,6 @@
+#!/bin/sh
+MODE=color
+RES=150
+FORMAT=jpeg
+OUT=/mnt/dumpdrive/scan/$(date +%Y-%m-%d-%H.%M.%S).jpg
+scanimage -d pixma:04A926EE_SJF960142793M -p --mode $MODE --resolution $RES --format=$FORMAT -o $OUT

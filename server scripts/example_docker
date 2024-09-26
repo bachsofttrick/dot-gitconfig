@@ -1,0 +1,1 @@
+docker run -d --name=nextcloud -p 8010:80 -v ~/mountpt:/var/www/html nextcloud

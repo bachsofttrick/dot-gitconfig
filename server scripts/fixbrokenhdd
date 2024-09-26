@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo mount /mnt/dumpdrive2

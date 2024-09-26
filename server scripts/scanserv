@@ -1,0 +1,8 @@
+#!/bin/bash
+sudo sane-find-scanner -q
+echo -n "Input Scanner device: "
+read -n 3 DEV
+sudo chmod a+rw /dev/bus/usb/001/$DEV
+docker stop scanservjs
+docker rm scanservjs
+docker run -d -p 8088:8080 --device=/dev/bus/usb/001/$DEV:/dev/bus/usb/001/$DEV --restart unless-stopped -v scanservjs:/app/config -v /mnt/dumpdrive/scan:/app/data/output --name=scanservjs sbs20/scanservjs 

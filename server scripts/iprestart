@@ -1,0 +1,32 @@
+#!/bin/sh
+IFACE1=wlan1
+IFACE2=eth0
+INFOR="Connection fine: $(date -R)"
+ERRO="Something wrong: $(date -R)"
+IP=192.168.4.1
+PING="ping $IP -c2 -w4"
+IPLINK="sudo ip link set"
+SLEEP="sleep 0.5"
+$PING
+if [ "$?" = 0 ]
+then
+  echo $INFOR
+else
+  $IPLINK $IFACE1 down
+  $SLEEP
+  $IPLINK $IFACE1 up
+  sudo dhclient -v -r $IFACE1
+  sudo dhclient -v -1 $IFACE1
+  $IPLINK $IFACE2 down
+  $SLEEP
+  $IPLINK $IFACE2 up
+  $PING
+  if [ "$?" = 0 ]
+  then
+    echo $INFOR
+  else
+    echo $ERRO
+    echo $ERRO >> /home/pi/restart.last
+    sudo reboot
+  fi
+fi

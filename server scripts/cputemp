@@ -1,0 +1,6 @@
+#!/bin/sh
+cat /sys/class/thermal/thermal_zone0/temp
+uptime
+cpufreq-info -fm
+cpufreq-info -sm
+vmstat -s

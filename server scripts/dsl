@@ -1,0 +1,24 @@
+#!/bin/sh
+# Please enable net.ipv4.ip_forward=1 in /etc/sysctl.conf
+IP="sudo iptables"
+IPNAT="$IP -t nat"
+NATPREROUTING="$IPNAT -A PREROUTING"
+NATPOSTROUTING="$IPNAT -A POSTROUTING"
+TCPPORT="-p tcp --dport"
+UDPPORT="-p udp --dport"
+OUTTO=wlx0018e7bd2f63
+
+# Clear tables
+$IP -F
+$IPNAT -F
+
+# Open Outgoing traffic
+$NATPOSTROUTING -o $OUTTO -j MASQUERADE
+
+# Translate Incoming traffic
+$NATPREROUTING -i $OUTTO $TCPPORT 21 -j DNAT --to 192.168.2.21
+#$NATPREROUTING -i $OUTTO $TCPPORT 4000 -j DNAT --to 192.168.2.100:3000
+#$NATPREROUTING -i $OUTTO $TCPPORT 8080 -j DNAT --to 192.168.2.100
+
+# Show mapped
+$IPNAT -L -nv

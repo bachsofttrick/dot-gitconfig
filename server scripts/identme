@@ -1,0 +1,4 @@
+#!/bin/sh
+curl ident.me
+echo
+

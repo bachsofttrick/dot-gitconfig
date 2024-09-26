@@ -1,0 +1,3 @@
+#!/bin/sh
+IF=enx00e04e3b0ac0
+sudo iptables -t nat -D POSTROUTING -o $IF -j MASQUERADE

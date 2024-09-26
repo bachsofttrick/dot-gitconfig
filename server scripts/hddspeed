@@ -1,0 +1,3 @@
+#!/bin/sh
+MYPATH="/mnt/dumpdrive/temp"
+dd if=/dev/zero of=$MYPATH bs=1M count=500 oflag=nocache status=progress && sync; rm -f $MYPATH

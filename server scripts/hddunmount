@@ -1,0 +1,3 @@
+#!/bin/sh
+MYDRIVE="/dev/sdl1"
+sudo udisksctl unmount -b $MYDRIVE && sudo udisksctl power-off -b $MYDRIVE

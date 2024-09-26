@@ -1,0 +1,4 @@
+#!/bin/sh
+IFACE=wlx0018e7bd2f63
+wavemon -i $IFACE
+
