@@ -1,0 +1,2 @@
+#!/bin/sh
+docker run -d --name blocky -v /home/pi/blocky/config.yml:/app/config.yml -e TZ='Asia/Ho_Chi_Minh' --network=shared -p 53:53/udp --restart unless-stopped spx01/blocky

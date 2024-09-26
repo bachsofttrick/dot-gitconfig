@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "logging": {
+    "file": "/home/pi/log/ftp.log",
+    "file_accesses": true,
+    "ftp_exchanges": true
+  },
+  "accesses": [
+    {
+      "user": "film",
+      "pass": "1",
+      "fs": "os",
+      "params": {
+        "basePath": "/mnt/dumpdrive/film"
+      }
+    },
+    {
+      "user": "film2",
+      "pass": "1",
+      "fs": "os",
+      "params": {
+        "basePath": "/mnt/dumpdrive2/film"
+      }
+    },
+    {
+      "user": "done",
+      "pass": "1",
+      "fs": "os",
+      "params": {
+        "basePath": "/mnt/dumpdrive/Done"
+      }
+    },
+    {
+      "user": "apk",
+      "pass": "1",
+      "fs": "os",
+      "params": {
+        "basePath": "/mnt/dumpdrive/soft/apk"
+      }
+    },
+    {
+      "user": "music",
+      "pass": "1",
+      "fs": "os",
+      "params": {
+        "basePath": "/mnt/dumpdrive/My Music"
+      }
+    },
+    {
+      "user": "kodi",
+      "pass": "1",
+      "fs": "os",
+      "params": {
+        "basePath": "/mnt"
+      }
+    }
+  ],
+  "passive_transfer_port_range": {
+    "start": 59990,
+    "end": 60000
+  }
+}

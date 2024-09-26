@@ -1,1 +1,7 @@
 docker run -d --name=nextcloud -p 8010:80 -v ~/mountpt:/var/www/html nextcloud
+docker run --name nginx -v /some/content:/usr/share/nginx/html:ro -d -p 8080:80 nginx:latest
+docker run --name mariadb --env MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=1 -d -p 3306:3306 mariadb:latest
+docker exec -it mariadb /bin/bash
+docker logs mariadb
+docker run -it --name alpine alpine /bin/sh
+docker run -it --entrypoint=sh --name alpine alpine

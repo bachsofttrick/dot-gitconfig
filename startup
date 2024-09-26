@@ -1,0 +1,11 @@
+#!/bin/sh
+#echo 0bda 8156 > /sys/bus/usb/drivers/r8152/new_id
+#mount /mnt/dumpdrive2
+su pi -c "cd /home/pi/music-http && npm start" &
+su pi -c "/home/pi/goftp/ftpserver --conf /home/pi/goftp/ftpserver.json" &
+#su pi -c "/home/pi/blocky/blocky --config /home/pi/blocky/config.yml" &
+#su pi -c "aria2c --enable-rpc --rpc-listen-all" &
+#su pi -c "cd /home/pi/webui-aria2 && node node-server.js 8001" &
+#su pi -c "iperf3 -s" &
+#sleep 10
+su pi -c "qbittorrent-nox" &

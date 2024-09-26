@@ -1,0 +1,25 @@
+upstream:
+  default:
+    - https://8.8.8.8/dns-query
+    - https://1.1.1.1/dns-query
+port: 53
+blocking:
+  blackLists:
+    ads:
+      - https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
+      - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+      - http://sysctl.org/cameleon/hosts
+      - https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
+  clientGroupsBlock:
+    default:
+      - ads
+customDNS:
+  mapping:
+    bach.server: 192.168.4.3
+queryLog:
+  type: mysql
+  target: blocky:1@tcp(localhost:3306)/blocky?charset=utf8mb4&parseTime=True&loc=Local
+  logRetentionDays: 7
+caching:
+  minTime: 1m
+  maxTime: 2m
